@@ -1,0 +1,55 @@
+println("We are creating a point");
+Point point = new Point();
+point.x = 5;
+point.y = 6;
+Point pointtwo = new Point();
+pointtwo.x = 7;
+pointtwo.y = 8;
+println("Distance: " + point.distanceTo(pointtwo));
+println("Distance to origin: " + point.distanceToOrigin());
+
+
+
+
+class Point{
+double x;
+double y;
+
+double distanceTo(Point pt)
+{
+	return Math.sqrt((Math.pow((this.x - pt.x),2) + Math.pow((this.y - pt.y), 2)));
+}
+
+double distanceToOrigin()
+{
+	Point origin = new Point();
+	origin.x = 0;
+	origin.y = 0;
+	return distanceTo(origin);
+}
+
+void moveTo(double x, double y)
+{
+	this.x = x;
+	this.y = y;
+}
+
+void moveto(Point pt)
+{
+	this.x = pt.x;
+	this.y = pt.y;
+}
+Point clone()
+{
+	Point pt;
+	pt = new Point();
+	pt.Set(this.x
+	return pt;
+}
+
+void opposite()
+{
+	this.x = -1*x;
+	this.y = -1*y;
+}
+}

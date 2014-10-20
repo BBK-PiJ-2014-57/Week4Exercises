@@ -1,0 +1,39 @@
+println("How much did you borrow for your mortgage?");
+String amount;
+amount = readLine();
+println("How many years did you want to back it back in?");
+String years;
+years = readLine();
+println("What was the interest rate?");
+String rate;
+rate = readLine();
+int amountnum;
+amountnum = Integer.parseInt(amount);
+int yearsnum;
+yearsnum = Integer.parseInt(years);
+double ratenum;
+ratenum = Double.parseDouble(rate);
+double amnttopay = amounttopay(yearsnum, amountnum, ratenum);
+println("The amount to pay is: " + amnttopay);
+double amnttopayeachyear = payeachyear(yearsnum, amountnum, ratenum);
+println("The amount to pay each year is: " + amnttopayeachyear);
+double yrstonointerest = yrstopayoffinterest(yearsnum, amountnum, ratenum);
+println("The number of years until you pay off the interest is: " + yrstonointerest);
+
+double amounttopay(int yrs, int amount, double rate)
+{
+	return (amount * (1 + rate/100));
+}
+
+double payeachyear(int yrs, int amount, double rate)
+{
+	double totalcost = amounttopay(yrs, amount, rate);
+	return totalcost/yrs;
+}
+
+double yrstopayoffinterest(int yrs, int amount, double rate)
+{
+	double totalcost = amounttopay(yrs, amount, rate);
+	double interest = totalcost - amount;
+	return (interest / payeachyear(yrs, amount, rate));
+}

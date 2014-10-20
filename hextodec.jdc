@@ -1,0 +1,130 @@
+boolean inputok = false;
+String binin = "";
+println("Please enter a decimal or hexadecimal number so I can convert it to the other");
+String input = readLine();
+boolean isHexadecimal = (input.charAt(1) == 'x');
+double outbin = 0;
+if(isHexadecimal)
+{
+
+String hexin = input.substring(2);
+println(hexin);
+outbin = hextodecimal(hexin);
+println("Number as binary: " + outbin);
+String outnum = "";
+}
+else
+{
+int decinput = Integer.parseInt(input);
+println("The decimal version of the above is: ");
+decimaltohex(decinput);
+}
+	
+
+
+double hextodecimal(String input){
+	double output = 0;
+	char temp;
+	int tempint;
+	int inputlen = input.length();
+	for(int i = inputlen - 1; i>=0; i--)
+	{
+		temp = input.charAt(inputlen - 1 -i);
+		tempint = (temp == '1') ? 1 : 0;
+		tempint = (temp == '2') ? 2 : tempint;
+		tempint = (temp == '3') ? 3 : tempint;
+		tempint = (temp == '4') ? 4 : tempint;
+		tempint = (temp == '5') ? 5 : tempint;
+		tempint = (temp == '6') ? 6 : tempint;
+		tempint = (temp == '7') ? 7 : tempint;
+		tempint = (temp == '8') ? 8 : tempint;
+		tempint = (temp == '9') ? 9 : tempint;
+		tempint = (temp == 'a') ? 10 : tempint;
+		tempint = (temp == 'b') ? 11 : tempint;
+		tempint = (temp == 'c') ? 12 : tempint;
+		tempint = (temp == 'd') ? 13 : tempint;
+		tempint = (temp == 'e') ? 14 : tempint;
+		tempint = (temp == 'f') ? 15 : tempint;
+		
+		output = output + (tempint * Math.pow(16, i));
+	}
+	return output;
+}
+	
+	
+	
+
+
+void decimaltohex(int number){
+	String output = "";
+	int temp = number;
+	while(temp != 0)
+	{
+		if(temp % 16 == 0)
+		{
+			output = "0" + output;
+		}
+		if(temp % 16 == 1)
+				{
+					output = "1" + output;
+		}
+		if(temp % 16 == 2)
+				{
+					output = "2" + output;
+		}
+		if(temp % 16 == 3)
+				{
+					output = "3" + output;
+		}
+		if(temp % 16 == 4)
+				{
+					output = "4" + output;
+		}
+		if(temp % 16 == 5)
+				{
+					output = "5" + output;
+		}
+		if(temp % 16 == 6)
+				{
+					output = "6" + output;
+		}
+		if(temp % 16 == 7)
+				{
+					output = "7" + output;
+		}
+		if(temp % 16 == 8)
+				{
+					output = "8" + output;
+		}
+		if(temp % 16 == 9)
+				{
+					output = "9" + output;
+		}
+		if(temp % 16 == 10)
+				{
+					output = "a" + output;
+		}
+		if(temp % 16 == 11)
+				{
+					output = "b" + output;
+		}
+		if(temp % 16 == 12)
+				{
+					output = "c" + output;
+		}
+		if(temp % 16 == 13)
+				{
+					output = "d" + output;
+		}
+		if(temp % 16 == 14)
+				{
+					output = "e" + output;
+		}
+		if(temp % 16 == 15)
+						{
+							output = "f" + output;
+		}
+		temp = temp / 16;
+	}
+	println("0x" + output);
+}
